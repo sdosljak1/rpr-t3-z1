@@ -1,5 +1,44 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
+import java.util.Scanner;
+
+public interface TelefonskiBroj {
+	String ispisi();
+	int hashCode();
+}
+
+public class FiksniBroj extends TelefonskiBroj {
+	private String broj;
+	public enum Grad { TRAVNIK, ORASJE, ZENICA, SARAJEVO, LIVNO, TUZLA, MOSTAR, BIHAC, GORAZDE, SIROKI_BRIJEG, BRCKO};
+	private Grad grad;
+
+	public FiksniBroj(Grad grad, String broj) {
+		this.grad = grad;
+		this.broj = broj;
+	}
+
+	@java.lang.Override
+	public String ispisi() {
+		String pozivni;
+		if (grad == Grad.TRAVNIK) pozivni = "030/";
+		if (grad == Grad.ORASJE) pozivni = "031/";
+		if (grad == Grad.ZENICA) pozivni = "032/";
+		if (grad == Grad.SARAJEVO) pozivni = "033/";
+		if (grad == Grad.LIVNO) pozivni = "034/";
+		if (grad == Grad.TUZLA) pozivni = "035/";
+		if (grad == Grad.MOSTAR) pozivni = "036/";
+		if (grad == Grad.BIHAC) pozivni = "037/";
+		if (grad == Grad.GORAZDE) pozivni = "038/";
+		if (grad == Grad.SIROKI_BRIJEG) pozivni = "039/";
+		if (grad == Grad.BRCKO) pozivni = "049/";
+
+		pozivni += broj;
+
+		System.out.println(pozivni);
+		return null;
+	}
+}
+
 public class Main {
 
     public static void main(String[] args) {
